@@ -1,0 +1,65 @@
+{% extends 'Admin/common.html' %}
+{% load static %}
+{% block header %}
+
+
+<style>
+    #table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center !important;
+    }
+
+    th,
+    td {
+        border: 1px solid rgb(196, 196, 196);
+        padding: 8px;
+
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+
+<div class="mil-content-pad mil-p-100-100">
+    <div class="container">
+        <center><b>
+                <h2>Mess Details</h2>
+            </b></center> <br><br>
+        <table id="table" class="table-bordered" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>BreakFast</th>
+                    <th>Lunch</th>
+                    <th>Dinner</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in view %}
+                <tr>
+                    <td>{{i.day}}</td>
+                    <td>{{i.breakfast}}</td>
+                    <td>{{i.lunch}}</td>
+                    <td>{{i.dinner}}</td>
+                    <td><a href="/update_mess_details?mid={{i.id}}" class="btn btn-outline-success">Update</a>
+                        <a href="/delete_mess_food?mid={{i.id}}" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}
