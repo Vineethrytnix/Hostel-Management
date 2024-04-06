@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 from .models import *
 
 # Create your views here.
-
+#Uploading to GIT
 
 def index(request):
     return render(request, "index.html")
